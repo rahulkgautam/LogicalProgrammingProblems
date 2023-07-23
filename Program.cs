@@ -4,25 +4,25 @@ using System.Diagnostics;
 
 namespace LogicalPrograms
 {
-   public class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Enter the change in Rs to be returned by the Vending Machine:");
-            if (int.TryParse(Console.ReadLine(), out int changeAmount))
+            if (args.Length != 3)
             {
-                int[] notes = VendingMachine.GetChange(changeAmount);
-
-                Console.WriteLine($"Minimum number of notes needed: {notes.Length}");
-                Console.WriteLine("Notes to be returned:");
-                foreach (int note in notes)
-                {
-                    Console.Write(note + " ");
-                }
+                Console.WriteLine("Usage: dotnet run <month> <day> <year>");
+                return;
+            }
+            if (int.TryParse(args[0], out int month) &&
+                int.TryParse(args[1], out int day) &&
+                int.TryParse(args[2], out int year))
+            {
+                int dayOfWeek = DayOfWeek.DayOfWeeks(day, month, year);
+                Console.WriteLine($"Day of the week: {dayOfWeek}");
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid integer.");
+                Console.WriteLine("Invalid input. Please enter valid integers for month, day, and year.");
             }
         }
     }
