@@ -10,10 +10,10 @@ namespace LogicalPrograms
             {
                 Console.WriteLine("=======**Welcome To Logical Programming Problems**========");
 
-                Console.WriteLine("Enter a number Fibonacci Series");
+                Console.WriteLine("Enter a number");
                 int number = Convert.ToInt32(Console.ReadLine());
-                var fibonacciSeries = new FibonacciSeries();
-                fibonacciSeries.PrintFibonacciSeries(number);
+                var primeNumber = new PrimeNumber();
+                primeNumber.CheckPrimeNumber(number);
             }
             catch(Exception ex)
             {
