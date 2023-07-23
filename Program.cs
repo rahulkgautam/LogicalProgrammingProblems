@@ -10,10 +10,10 @@ namespace LogicalPrograms
             {
                 Console.WriteLine("=======**Welcome To Logical Programming Problems**========");
 
-                Console.WriteLine("Enter a number");
+                Console.WriteLine("Enter 2 or more digit a number");
                 int number = Convert.ToInt32(Console.ReadLine());
-                var primeNumber = new PrimeNumber();
-                primeNumber.CheckPrimeNumber(number);
+                var reverseNumber = new ReverseNumber();
+                reverseNumber.ReverseInputNumber(number);
             }
             catch(Exception ex)
             {
