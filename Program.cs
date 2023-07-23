@@ -5,21 +5,25 @@ using System.Diagnostics;
 namespace LogicalPrograms
 {
     public class Program
-    {    
-        public static void Main(string[] args)
+    {
+       public static void Main(string[] args)
         {
-            Console.WriteLine("Enter the temperature:");
-            if (double.TryParse(Console.ReadLine(), out double temperature))
+            if (args.Length != 3)
             {
-                Console.WriteLine("Enter 'C' for Celsius to Fahrenheit or 'F' for Fahrenheit to Celsius:");
-                char choice = Console.ReadKey().KeyChar;
-                Console.WriteLine();
+                Console.WriteLine("Usage: dotnet run <principal> <years> <interest_rate>");
+                return;
+            }
 
-                TemperatureConversion.temperatureConversion(choice, temperature);
+            if (double.TryParse(args[0], out double principal) &&
+                int.TryParse(args[1], out int years) &&
+                double.TryParse(args[2], out double interestRate))
+            {
+                double monthlyPayment = MonthlyPayment.CalculateMonthlyPayment(principal, years, interestRate);
+                Console.WriteLine($"Monthly Payment: {monthlyPayment:F2}");
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid temperature.");
+                Console.WriteLine("Invalid input. Please enter valid numbers for principal, years, and interest rate.");
             }
         }
     }
