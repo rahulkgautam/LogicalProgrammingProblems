@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace LogicalPrograms
 {
@@ -6,8 +7,7 @@ namespace LogicalPrograms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("=======**Welcome To Logical Programming Problems**========");
-            CouponNumber.GenerateCouponNumber();
+            StopWatch.StopWatchs();
         }
     }
 }
